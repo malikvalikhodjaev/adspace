@@ -1,0 +1,27 @@
+[Unit]
+Description=Maydonlar LED platform
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/malik/apps/adspace/current
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3002
+Environment=APP_URL=https://maydonlar.fom-analytics.uz
+Environment=MAYDON_REDIRECT=0
+Environment=ADSPACE_DATA_DIR=/home/malik/apps/adspace/data
+Environment=FFMPEG_PATH=/home/malik/apps/adspace/runtime/media/node_modules/ffmpeg-static/ffmpeg
+Environment=FFPROBE_PATH=/home/malik/apps/adspace/runtime/media/node_modules/ffprobe-static/bin/linux/x64/ffprobe
+ExecStart=/home/malik/apps/eventhub-uz/runtime/node/bin/node /home/malik/apps/adspace/current/dist/standalone/server.js
+Restart=on-failure
+RestartSec=4
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+MemoryMax=1G
+CPUQuota=150%
+
+[Install]
+WantedBy=default.target

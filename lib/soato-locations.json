@@ -1,0 +1,1550 @@
+{
+  "source": "https://stat.uz/images/soato-20_04_2022.xlsx",
+  "sourceDate": "2022-04-20",
+  "license": "CC BY 4.0",
+  "cities": [
+    {
+      "code": "1726",
+      "uz": "Toshkent",
+      "ru": "Ташкент",
+      "regionUz": "Toshkent shahri",
+      "regionRu": "город Ташкент",
+      "districts": [
+        {
+          "code": "1726262",
+          "uz": "Uchtepa tumani",
+          "ru": "Учтепинский район"
+        },
+        {
+          "code": "1726264",
+          "uz": "Bektemir tumani",
+          "ru": "Бектемирский район"
+        },
+        {
+          "code": "1726266",
+          "uz": "Yunusobod tumani",
+          "ru": "Юнусабадский район"
+        },
+        {
+          "code": "1726269",
+          "uz": "Mirzo Ulug‘bek tumani",
+          "ru": "Мирзо-Улугбекский район"
+        },
+        {
+          "code": "1726273",
+          "uz": "Mirobod tumani",
+          "ru": "Мирабадский район"
+        },
+        {
+          "code": "1726277",
+          "uz": "Shayxontoxur tumani",
+          "ru": "Шайхантахурский район"
+        },
+        {
+          "code": "1726280",
+          "uz": "Olmazor tumani",
+          "ru": "Алмазарский район"
+        },
+        {
+          "code": "1726283",
+          "uz": "Sirg‘ali tumani",
+          "ru": "Сергелийский район"
+        },
+        {
+          "code": "1726287",
+          "uz": "Yakkasaroy tumani",
+          "ru": "Яккасарайский район"
+        },
+        {
+          "code": "1726290",
+          "uz": "Yashnobod tumani",
+          "ru": "Яшнободский район"
+        },
+        {
+          "code": "1726292",
+          "uz": "Yangihayot tumani",
+          "ru": "Янгихаётский район"
+        },
+        {
+          "code": "1726294",
+          "uz": "Chilonzor tumani",
+          "ru": "Чиланзарский район"
+        }
+      ]
+    },
+    {
+      "code": "1703401",
+      "uz": "Andijon",
+      "ru": "Андижан",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": []
+    },
+    {
+      "code": "1727407",
+      "uz": "Angren",
+      "ru": "Ангрен",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1703224501",
+      "uz": "Asaka",
+      "ru": "Асака",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703224",
+          "uz": "Asaka tumani",
+          "ru": "Асакинский район"
+        }
+      ]
+    },
+    {
+      "code": "1724231503",
+      "uz": "Baxt",
+      "ru": "Бахт",
+      "regionUz": "Sirdaryo viloyati",
+      "regionRu": "Сырдарьинская область",
+      "districts": [
+        {
+          "code": "1724231",
+          "uz": "Sirdaryo tumani",
+          "ru": "Сырдарьинский район"
+        }
+      ]
+    },
+    {
+      "code": "1727413",
+      "uz": "Bekobod",
+      "ru": "Бекабад",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1735207501",
+      "uz": "Beruniy",
+      "ru": "Беруни",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735207",
+          "uz": "Beruniy tumani",
+          "ru": "Берунийский район"
+        }
+      ]
+    },
+    {
+      "code": "1730215501",
+      "uz": "Beshariq",
+      "ru": "Бешарык",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": [
+        {
+          "code": "1730215",
+          "uz": "Beshariq tumani",
+          "ru": "Бешарыкский район"
+        }
+      ]
+    },
+    {
+      "code": "1710224501",
+      "uz": "Beshkent",
+      "ru": "Бешкент",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710224",
+          "uz": "Qarshi tumani",
+          "ru": "Каршинский район"
+        }
+      ]
+    },
+    {
+      "code": "1722204501",
+      "uz": "Boysun",
+      "ru": "Байсун",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722204",
+          "uz": "Boysun tumani",
+          "ru": "Байсунский район"
+        }
+      ]
+    },
+    {
+      "code": "1727228501",
+      "uz": "Bo‘ka",
+      "ru": "Бука",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727228",
+          "uz": "Bo‘ka tumani",
+          "ru": "Букинский район"
+        }
+      ]
+    },
+    {
+      "code": "1735250501",
+      "uz": "Bo‘ston",
+      "ru": "Бустан",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735250",
+          "uz": "Ellikkala tumani",
+          "ru": "Элликкалинский район"
+        }
+      ]
+    },
+    {
+      "code": "1718206501",
+      "uz": "Bulung‘ur",
+      "ru": "Булунгур",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718206",
+          "uz": "Bulung‘ur tumani",
+          "ru": "Булунгурский район"
+        }
+      ]
+    },
+    {
+      "code": "1706401",
+      "uz": "Buxoro",
+      "ru": "Бухара",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": []
+    },
+    {
+      "code": "1718224502",
+      "uz": "Chelak",
+      "ru": "Челек",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718224",
+          "uz": "Payariq tumani",
+          "ru": "Пайарыкский район"
+        }
+      ]
+    },
+    {
+      "code": "1735240501",
+      "uz": "Chimboy",
+      "ru": "Чимбай",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735240",
+          "uz": "Chimboy tumani",
+          "ru": "Чимбайский район"
+        }
+      ]
+    },
+    {
+      "code": "1727256501",
+      "uz": "Chinoz",
+      "ru": "Чиназ",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727256",
+          "uz": "Chinoz tumani",
+          "ru": "Чиназский район"
+        }
+      ]
+    },
+    {
+      "code": "1727419",
+      "uz": "Chirchiq",
+      "ru": "Чиpчик",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1710242501",
+      "uz": "Chiroqchi",
+      "ru": "Чиракчи",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710242",
+          "uz": "Chiroqchi tumani",
+          "ru": "Чиракчинский район"
+        }
+      ]
+    },
+    {
+      "code": "1714236501",
+      "uz": "Chortoq",
+      "ru": "Чаpтак",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714236",
+          "uz": "Chortoq tumani",
+          "ru": "Чартакский район"
+        }
+      ]
+    },
+    {
+      "code": "1714237501",
+      "uz": "Chust",
+      "ru": "Чуст",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714237",
+          "uz": "Chust tumani",
+          "ru": "Чустский район"
+        }
+      ]
+    },
+    {
+      "code": "1708218503",
+      "uz": "Dashtobod",
+      "ru": "Даштобод",
+      "regionUz": "Jizzax viloyati",
+      "regionRu": "Джизакская область",
+      "districts": [
+        {
+          "code": "1708218",
+          "uz": "Zomin tumani",
+          "ru": "Зааминский район"
+        }
+      ]
+    },
+    {
+      "code": "1722210501",
+      "uz": "Denov",
+      "ru": "Денау",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722210",
+          "uz": "Denov tumani",
+          "ru": "Денауский район"
+        }
+      ]
+    },
+    {
+      "code": "1708215501",
+      "uz": "Do‘stlik",
+      "ru": "Дустлик",
+      "regionUz": "Jizzax viloyati",
+      "regionRu": "Джизакская область",
+      "districts": [
+        {
+          "code": "1708215",
+          "uz": "Do‘stlik tumani",
+          "ru": "Дустликский район"
+        }
+      ]
+    },
+    {
+      "code": "1727233501",
+      "uz": "Do‘stobod",
+      "ru": "Дустобод",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727233",
+          "uz": "Quyichirchiq tumani",
+          "ru": "Куйичирчикский район"
+        }
+      ]
+    },
+    {
+      "code": "1730401",
+      "uz": "Farg‘ona",
+      "ru": "Фергана",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": []
+    },
+    {
+      "code": "1708223501",
+      "uz": "Gagarin",
+      "ru": "Гагарин",
+      "regionUz": "Jizzax viloyati",
+      "regionRu": "Джизакская область",
+      "districts": [
+        {
+          "code": "1708223",
+          "uz": "Mirzacho‘l tumani",
+          "ru": "Мирзачульский район"
+        }
+      ]
+    },
+    {
+      "code": "1706207501",
+      "uz": "Gala Osiyo",
+      "ru": "Галлаасия",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706207",
+          "uz": "Buxoro tumani",
+          "ru": "Бухарский район"
+        }
+      ]
+    },
+    {
+      "code": "1706242505",
+      "uz": "Gazli",
+      "ru": "Газли",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706242",
+          "uz": "Romitan tumani",
+          "ru": "Ромитанский район"
+        }
+      ]
+    },
+    {
+      "code": "1724401",
+      "uz": "Guliston",
+      "ru": "Гулистан",
+      "regionUz": "Sirdaryo viloyati",
+      "regionRu": "Сырдарьинская область",
+      "districts": []
+    },
+    {
+      "code": "1708209501",
+      "uz": "G‘allaorol",
+      "ru": "Галляарал",
+      "regionUz": "Jizzax viloyati",
+      "regionRu": "Джизакская область",
+      "districts": [
+        {
+          "code": "1708209",
+          "uz": "G‘allaorol tumani",
+          "ru": "Галляаральский район"
+        }
+      ]
+    },
+    {
+      "code": "1727224501",
+      "uz": "G‘azalkent",
+      "ru": "Газалкент",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727224",
+          "uz": "Bo‘stonliq tumani",
+          "ru": "Бостанлыкский район"
+        }
+      ]
+    },
+    {
+      "code": "1706215501",
+      "uz": "G‘ijduvon",
+      "ru": "Гиждуван",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706215",
+          "uz": "G‘ijduvon tumani",
+          "ru": "Гиждуванский район"
+        }
+      ]
+    },
+    {
+      "code": "1712412",
+      "uz": "G‘ozg‘on",
+      "ru": "Газган",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": []
+    },
+    {
+      "code": "1710207501",
+      "uz": "G‘uzor",
+      "ru": "Гузар",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710207",
+          "uz": "G‘uzor tumani",
+          "ru": "Гузарский район"
+        }
+      ]
+    },
+    {
+      "code": "1718212501",
+      "uz": "Ishtixon",
+      "ru": "Иштыхан",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718212",
+          "uz": "Ishtixon tumani",
+          "ru": "Иштыханский район"
+        }
+      ]
+    },
+    {
+      "code": "1703211501",
+      "uz": "Jalaquduq",
+      "ru": "Жалакудук",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703211",
+          "uz": "Jalaquduq tumani",
+          "ru": "Жалакудукский район"
+        }
+      ]
+    },
+    {
+      "code": "1722212501",
+      "uz": "Jarqo‘rg‘on",
+      "ru": "Джаркурган",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722212",
+          "uz": "Jarqo‘rg‘on tumani",
+          "ru": "Джаркурганский район"
+        }
+      ]
+    },
+    {
+      "code": "1708401",
+      "uz": "Jizzax",
+      "ru": "Джизак",
+      "regionUz": "Jizzax viloyati",
+      "regionRu": "Джизакская область",
+      "districts": []
+    },
+    {
+      "code": "1718209501",
+      "uz": "Jomboy",
+      "ru": "Джамбай",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718209",
+          "uz": "Jomboy tumani",
+          "ru": "Джамбайский район"
+        }
+      ]
+    },
+    {
+      "code": "1718227501",
+      "uz": "Juma",
+      "ru": "Джума",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718227",
+          "uz": "Pastdarg‘om tumani",
+          "ru": "Пастдаргомский район"
+        }
+      ]
+    },
+    {
+      "code": "1718406",
+      "uz": "Kattaqo‘rg‘on",
+      "ru": "Каттакурган",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": []
+    },
+    {
+      "code": "1727265501",
+      "uz": "Keles",
+      "ru": "Келес",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727265",
+          "uz": "Toshkent tumani",
+          "ru": "Ташкентский район"
+        }
+      ]
+    },
+    {
+      "code": "1710232501",
+      "uz": "Kitob",
+      "ru": "Китаб",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710232",
+          "uz": "Kitob tumani",
+          "ru": "Китабский район"
+        }
+      ]
+    },
+    {
+      "code": "1706403",
+      "uz": "Kogon",
+      "ru": "Каган",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": []
+    },
+    {
+      "code": "1710229501",
+      "uz": "Koson",
+      "ru": "Касан",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710229",
+          "uz": "Koson tumani",
+          "ru": "Касанский район"
+        }
+      ]
+    },
+    {
+      "code": "1714207501",
+      "uz": "Kosonsoy",
+      "ru": "Касансай",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714207",
+          "uz": "Kosonsoy tumani",
+          "ru": "Касансайский район"
+        }
+      ]
+    },
+    {
+      "code": "1735204501",
+      "uz": "Mang‘it",
+      "ru": "Мангит",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735204",
+          "uz": "Amudaryo tumani",
+          "ru": "Амударьинский район"
+        }
+      ]
+    },
+    {
+      "code": "1730412",
+      "uz": "Marg‘ilon",
+      "ru": "Маpгилан",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": []
+    },
+    {
+      "code": "1703227501",
+      "uz": "Marxamat",
+      "ru": "Мархамат",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703227",
+          "uz": "Marxamat tumani",
+          "ru": "Мархаматский район"
+        }
+      ]
+    },
+    {
+      "code": "1735222501",
+      "uz": "Mo‘ynoq",
+      "ru": "Муйнак",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735222",
+          "uz": "Mo‘ynoq tumani",
+          "ru": "Муйнакский район"
+        }
+      ]
+    },
+    {
+      "code": "1710234501",
+      "uz": "Muborak",
+      "ru": "Мубаpек",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710234",
+          "uz": "Muborak tumani",
+          "ru": "Мубарекский район"
+        }
+      ]
+    },
+    {
+      "code": "1714401",
+      "uz": "Namangan",
+      "ru": "Наманган",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": []
+    },
+    {
+      "code": "1712401",
+      "uz": "Navoiy",
+      "ru": "Навои",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": []
+    },
+    {
+      "code": "1735401",
+      "uz": "Nukus",
+      "ru": "Нукус",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": []
+    },
+    {
+      "code": "1727401",
+      "uz": "Nurafshon",
+      "ru": "Нурафшон",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1718235501",
+      "uz": "Nurobod",
+      "ru": "Нурабад",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718235",
+          "uz": "Nurobod tumani",
+          "ru": "Нурабадский район"
+        }
+      ]
+    },
+    {
+      "code": "1712238501",
+      "uz": "Nurota",
+      "ru": "Нурата",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": [
+        {
+          "code": "1712238",
+          "uz": "Nurota tumani",
+          "ru": "Нуратинский район"
+        }
+      ]
+    },
+    {
+      "code": "1727415",
+      "uz": "Ohangaron",
+      "ru": "Ахангаран",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1727404",
+      "uz": "Olmaliq",
+      "ru": "Алмалык",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1706204501",
+      "uz": "Olot",
+      "ru": "Алат",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706204",
+          "uz": "Olot tumani",
+          "ru": "Алатский район"
+        }
+      ]
+    },
+    {
+      "code": "1727206501",
+      "uz": "Oqqo‘rg‘on",
+      "ru": "Аккурган",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727206",
+          "uz": "Oqqo‘rg‘on tumani",
+          "ru": "Аккурганский район"
+        }
+      ]
+    },
+    {
+      "code": "1718218501",
+      "uz": "Oqtosh",
+      "ru": "Акташ",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718218",
+          "uz": "Narpay tumani",
+          "ru": "Нарпайский район"
+        }
+      ]
+    },
+    {
+      "code": "1727249501",
+      "uz": "Parkent",
+      "ru": "Паркент",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727249",
+          "uz": "Parkent tumani",
+          "ru": "Паркентский район"
+        }
+      ]
+    },
+    {
+      "code": "1708228501",
+      "uz": "Paxtakor",
+      "ru": "Пахтакор",
+      "regionUz": "Jizzax viloyati",
+      "regionRu": "Джизакская область",
+      "districts": [
+        {
+          "code": "1708228",
+          "uz": "Paxtakor tumani",
+          "ru": "Пахтакорский район"
+        }
+      ]
+    },
+    {
+      "code": "1703232501",
+      "uz": "Paxtaobod",
+      "ru": "Пахтаабад",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703232",
+          "uz": "Paxtaobod tumani",
+          "ru": "Пахтаабадский район"
+        }
+      ]
+    },
+    {
+      "code": "1718224501",
+      "uz": "Payariq",
+      "ru": "Пайаpык",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718224",
+          "uz": "Payariq tumani",
+          "ru": "Пайарыкский район"
+        }
+      ]
+    },
+    {
+      "code": "1703214501",
+      "uz": "Paytug",
+      "ru": "Пайтуг",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703214",
+          "uz": "Izboskan tumani",
+          "ru": "Избасканский район"
+        }
+      ]
+    },
+    {
+      "code": "1733221501",
+      "uz": "Pitnak",
+      "ru": "Питнак",
+      "regionUz": "Xorazm viloyati",
+      "regionRu": "Хорезмская область",
+      "districts": [
+        {
+          "code": "1733221",
+          "uz": "Tuproqqal’a tumani",
+          "ru": "Тупроккалинский район"
+        }
+      ]
+    },
+    {
+      "code": "1714219501",
+      "uz": "Pop",
+      "ru": "Пап",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714219",
+          "uz": "Pop tumani",
+          "ru": "Папский район"
+        }
+      ]
+    },
+    {
+      "code": "1727250501",
+      "uz": "Pskent",
+      "ru": "Пскент",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": [
+        {
+          "code": "1727250",
+          "uz": "Pskent tumani",
+          "ru": "Пскентский район"
+        }
+      ]
+    },
+    {
+      "code": "1710220501",
+      "uz": "Qamashi",
+      "ru": "Камаши",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710220",
+          "uz": "Qamashi tumani",
+          "ru": "Камашинский район"
+        }
+      ]
+    },
+    {
+      "code": "1710401",
+      "uz": "Qarshi",
+      "ru": "Карши",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": []
+    },
+    {
+      "code": "1712216501",
+      "uz": "Qiziltepa",
+      "ru": "Кызылтепа",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": [
+        {
+          "code": "1712216",
+          "uz": "Qiziltepa tumani",
+          "ru": "Кызылтепинский район"
+        }
+      ]
+    },
+    {
+      "code": "1706230501",
+      "uz": "Qorako‘l",
+      "ru": "Каракуль",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706230",
+          "uz": "Qorako‘l tumani",
+          "ru": "Каракульский район"
+        }
+      ]
+    },
+    {
+      "code": "1703220505",
+      "uz": "Qorasuv",
+      "ru": "Карасу",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703220",
+          "uz": "Qo‘rg‘ontepa tumani",
+          "ru": "Кургантепинский район"
+        }
+      ]
+    },
+    {
+      "code": "1706232501",
+      "uz": "Qorovulbozor",
+      "ru": "Караулбазар",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706232",
+          "uz": "Qorovulbozor tumani",
+          "ru": "Караулбазарский район"
+        }
+      ]
+    },
+    {
+      "code": "1735215501",
+      "uz": "Qo‘ng‘irot",
+      "ru": "Кунград",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735215",
+          "uz": "Qo‘ng‘irot tumani",
+          "ru": "Кунградский район"
+        }
+      ]
+    },
+    {
+      "code": "1730405",
+      "uz": "Qo‘qon",
+      "ru": "Коканд",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": []
+    },
+    {
+      "code": "1703220501",
+      "uz": "Qo‘rg‘ontepa",
+      "ru": "Кургантепа",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703220",
+          "uz": "Qo‘rg‘ontepa tumani",
+          "ru": "Кургантепинский район"
+        }
+      ]
+    },
+    {
+      "code": "1722214501",
+      "uz": "Qumqo‘rg‘on",
+      "ru": "Кумкурган",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722214",
+          "uz": "Qumqo‘rg‘on tumani",
+          "ru": "Кумкурганский район"
+        }
+      ]
+    },
+    {
+      "code": "1730218501",
+      "uz": "Quva",
+      "ru": "Кува",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": [
+        {
+          "code": "1730218",
+          "uz": "Quva tumani",
+          "ru": "Кувинский район"
+        }
+      ]
+    },
+    {
+      "code": "1730408",
+      "uz": "Quvasoy",
+      "ru": "Кувасай",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": []
+    },
+    {
+      "code": "1730224501",
+      "uz": "Rishton",
+      "ru": "Риштан",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": [
+        {
+          "code": "1730224",
+          "uz": "Rishton tumani",
+          "ru": "Риштанский район"
+        }
+      ]
+    },
+    {
+      "code": "1706242501",
+      "uz": "Romitan",
+      "ru": "Ромитан",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706242",
+          "uz": "Romitan tumani",
+          "ru": "Ромитанский район"
+        }
+      ]
+    },
+    {
+      "code": "1718401",
+      "uz": "Samarqand",
+      "ru": "Самарканд",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": []
+    },
+    {
+      "code": "1710405",
+      "uz": "Shahrisabz",
+      "ru": "Шахрисабз",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": []
+    },
+    {
+      "code": "1722217505",
+      "uz": "Sharg‘un",
+      "ru": "Шаргунь",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722217",
+          "uz": "Sariosiyo tumani",
+          "ru": "Сариасийский район"
+        }
+      ]
+    },
+    {
+      "code": "1703230501",
+      "uz": "Shaxrixon",
+      "ru": "Шахрихан",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703230",
+          "uz": "Shaxrixon tumani",
+          "ru": "Шахриханский район"
+        }
+      ]
+    },
+    {
+      "code": "1722223501",
+      "uz": "Sherobod",
+      "ru": "Шерабад",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722223",
+          "uz": "Sherobod tumani",
+          "ru": "Шерабадский район"
+        }
+      ]
+    },
+    {
+      "code": "1724410",
+      "uz": "Shirin",
+      "ru": "Шиpин",
+      "regionUz": "Sirdaryo viloyati",
+      "regionRu": "Сырдарьинская область",
+      "districts": []
+    },
+    {
+      "code": "1706258501",
+      "uz": "Shofirkon",
+      "ru": "Шафиркан",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706258",
+          "uz": "Shofirkon tumani",
+          "ru": "Шафирканский район"
+        }
+      ]
+    },
+    {
+      "code": "1722226501",
+      "uz": "Sho‘rchi",
+      "ru": "Шурчи",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": [
+        {
+          "code": "1722226",
+          "uz": "Sho‘rchi tumani",
+          "ru": "Шурчинский район"
+        }
+      ]
+    },
+    {
+      "code": "1735243501",
+      "uz": "Shumanay",
+      "ru": "Шуманай",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735243",
+          "uz": "Shumanay tumani",
+          "ru": "Шуманайский район"
+        }
+      ]
+    },
+    {
+      "code": "1724231501",
+      "uz": "Sirdaryo",
+      "ru": "Сыpдаpья",
+      "regionUz": "Sirdaryo viloyati",
+      "regionRu": "Сырдарьинская область",
+      "districts": [
+        {
+          "code": "1724231",
+          "uz": "Sirdaryo tumani",
+          "ru": "Сырдарьинский район"
+        }
+      ]
+    },
+    {
+      "code": "1710235505",
+      "uz": "Talimarjon",
+      "ru": "Талимарджан",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710235",
+          "uz": "Nishon tumani",
+          "ru": "Нишанский район"
+        }
+      ]
+    },
+    {
+      "code": "1735228501",
+      "uz": "Taxiatosh",
+      "ru": "Тахиаташ",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735228",
+          "uz": "Taxiatosh tumani",
+          "ru": "Тахиаташский район"
+        }
+      ]
+    },
+    {
+      "code": "1722401",
+      "uz": "Termiz",
+      "ru": "Термез",
+      "regionUz": "Surxondaryo viloyati",
+      "regionRu": "Сурхандарьинская область",
+      "districts": []
+    },
+    {
+      "code": "1730203508",
+      "uz": "Tinchlik",
+      "ru": "Тинчлик",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": [
+        {
+          "code": "1730203",
+          "uz": "Oltiariq tumani",
+          "ru": "Алтыарыкский район"
+        }
+      ]
+    },
+    {
+      "code": "1714224501",
+      "uz": "To‘raqo‘rg‘on",
+      "ru": "Туракурган",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714224",
+          "uz": "To‘raqo‘rg‘on tumani",
+          "ru": "Туракурганский район"
+        }
+      ]
+    },
+    {
+      "code": "1735233501",
+      "uz": "To‘rtko‘l",
+      "ru": "Турткуль",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735233",
+          "uz": "To‘rtko‘l tumani",
+          "ru": "Турткульский район"
+        }
+      ]
+    },
+    {
+      "code": "1714234501",
+      "uz": "Uchqo‘rg‘on",
+      "ru": "Учкуpган",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714234",
+          "uz": "Uchqo‘rg‘on tumani",
+          "ru": "Учкурганский район"
+        }
+      ]
+    },
+    {
+      "code": "1712248501",
+      "uz": "Uchquduq",
+      "ru": "Учкудук",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": [
+        {
+          "code": "1712248",
+          "uz": "Uchquduq tumani",
+          "ru": "Учкудукский район"
+        }
+      ]
+    },
+    {
+      "code": "1733401",
+      "uz": "Urganch",
+      "ru": "Ургенч",
+      "regionUz": "Xorazm viloyati",
+      "regionRu": "Хорезмская область",
+      "districts": []
+    },
+    {
+      "code": "1718236501",
+      "uz": "Urgut",
+      "ru": "Ургут",
+      "regionUz": "Samarqand viloyati",
+      "regionRu": "Самаркандская область",
+      "districts": [
+        {
+          "code": "1718236",
+          "uz": "Urgut tumani",
+          "ru": "Ургутский район"
+        }
+      ]
+    },
+    {
+      "code": "1706212501",
+      "uz": "Vobkent",
+      "ru": "Вабкент",
+      "regionUz": "Buxoro viloyati",
+      "regionRu": "Бухарская область",
+      "districts": [
+        {
+          "code": "1706212",
+          "uz": "Vobkent tumani",
+          "ru": "Вабкентский район"
+        }
+      ]
+    },
+    {
+      "code": "1735212505",
+      "uz": "Xalqobod",
+      "ru": "Халкабад",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735212",
+          "uz": "Kegeyli tumani",
+          "ru": "Кегейлийский район"
+        }
+      ]
+    },
+    {
+      "code": "1714216501",
+      "uz": "Xaqqulobod",
+      "ru": "Хаккулабад",
+      "regionUz": "Namangan viloyati",
+      "regionRu": "Наманганская область",
+      "districts": [
+        {
+          "code": "1714216",
+          "uz": "Norin tumani",
+          "ru": "Нарынский район"
+        }
+      ]
+    },
+    {
+      "code": "1733406",
+      "uz": "Xiva",
+      "ru": "Хива",
+      "regionUz": "Xorazm viloyati",
+      "regionRu": "Хорезмская область",
+      "districts": []
+    },
+    {
+      "code": "1703408",
+      "uz": "Xonobod",
+      "ru": "Ханабад",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": []
+    },
+    {
+      "code": "1703236501",
+      "uz": "Xo‘jaobod",
+      "ru": "Ходжаабад",
+      "regionUz": "Andijon viloyati",
+      "regionRu": "Андижанская область",
+      "districts": [
+        {
+          "code": "1703236",
+          "uz": "Xo‘jaobod tumani",
+          "ru": "Ходжаабадский район"
+        }
+      ]
+    },
+    {
+      "code": "1735236501",
+      "uz": "Xo‘jayli",
+      "ru": "Ходжейли",
+      "regionUz": "Qoraqalpog‘iston Respublikasi",
+      "regionRu": "Республика Каракалпакстан",
+      "districts": [
+        {
+          "code": "1735236",
+          "uz": "Xo‘jayli tumani",
+          "ru": "Ходжейлийский район"
+        }
+      ]
+    },
+    {
+      "code": "1710250501",
+      "uz": "Yakkabog‘",
+      "ru": "Яккабаг",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710250",
+          "uz": "Yakkabog‘ tumani",
+          "ru": "Яккабагский район"
+        }
+      ]
+    },
+    {
+      "code": "1710235501",
+      "uz": "Yangi Nishon",
+      "ru": "Янги-Нишан",
+      "regionUz": "Qashqadaryo viloyati",
+      "regionRu": "Кашкадарьинская область",
+      "districts": [
+        {
+          "code": "1710235",
+          "uz": "Nishon tumani",
+          "ru": "Нишанский район"
+        }
+      ]
+    },
+    {
+      "code": "1727407505",
+      "uz": "Yangiobod",
+      "ru": "Янгиабад",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1712251501",
+      "uz": "Yangirabod",
+      "ru": "Янгиpабод",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": [
+        {
+          "code": "1712251",
+          "uz": "Xatirchi tumani",
+          "ru": "Хатырчинский район"
+        }
+      ]
+    },
+    {
+      "code": "1724413",
+      "uz": "Yangiyer",
+      "ru": "Янгиеp",
+      "regionUz": "Sirdaryo viloyati",
+      "regionRu": "Сырдарьинская область",
+      "districts": []
+    },
+    {
+      "code": "1727424",
+      "uz": "Yangiyo‘l",
+      "ru": "Янгиюль",
+      "regionUz": "Toshkent viloyati",
+      "regionRu": "Ташкентская область",
+      "districts": []
+    },
+    {
+      "code": "1730230501",
+      "uz": "Yaypan",
+      "ru": "Яйпан",
+      "regionUz": "Farg‘ona viloyati",
+      "regionRu": "Ферганская область",
+      "districts": [
+        {
+          "code": "1730230",
+          "uz": "O‘zbekiston tumani",
+          "ru": "Узбекистанский район"
+        }
+      ]
+    },
+    {
+      "code": "1712408",
+      "uz": "Zarafshon",
+      "ru": "Заpафшан",
+      "regionUz": "Navoiy viloyati",
+      "regionRu": "Навоийская область",
+      "districts": []
+    }
+  ]
+}

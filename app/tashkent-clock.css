@@ -1,0 +1,43 @@
+.tashkent-clock {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.tashkent-clock-label {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.tashkent-clock-time {
+  display: block;
+  font-family: 'Maydon Condensed', Arial, sans-serif;
+  font-size: clamp(54px, 7vw, 102px);
+  font-weight: 900;
+  letter-spacing: -.045em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tashkent-clock-date {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tashkent-clock--player .tashkent-clock-label {
+  font-size: 10px;
+}
+
+.tashkent-clock--player .tashkent-clock-time {
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.tashkent-clock--player .tashkent-clock-date {
+  font-size: 11px;
+}
+
+.tashkent-clock--demo .tashkent-clock-time {
+  font-size: clamp(42px, 4vw, 64px);
+}

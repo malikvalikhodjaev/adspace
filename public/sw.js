@@ -1,0 +1,4 @@
+self.addEventListener('install',()=>self.skipWaiting());
+self.addEventListener('activate',event=>event.waitUntil(self.clients.claim()));
+// Private API responses, creatives and pages are never stored in an offline cache.
+self.addEventListener('fetch',event=>{if(new URL(event.request.url).pathname==='/test')return;if(event.request.mode==='navigate')event.respondWith(fetch(event.request).catch(()=>new Response('<!doctype html><html lang="ru"><meta name="viewport" content="width=device-width"><title>Maydonlar</title><body style="font:18px Arial;padding:40px;color:#b84248"><h1>Maydonlar</h1><p>Нет подключения к интернету. Для работы с заявками восстановите соединение.</p><p>Internet aloqasi yo‘q. Arizalar bilan ishlash uchun ulanishni tiklang.</p><a href="/">Повторить / Qayta urinish</a></body></html>',{headers:{'Content-Type':'text/html;charset=utf-8'}})))});

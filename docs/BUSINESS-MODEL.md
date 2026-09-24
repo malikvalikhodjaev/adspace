@@ -1,0 +1,11 @@
+# Maydonlar business-model hypotheses
+
+Maydonlar aggregates inventory owned by independent screen operators. New screens have a price per 10/15/30-second play; the customer selects plays per day and days. Older screens may retain a daily tariff until the owner changes it. The platform commission is configurable; the initial 15% is a hypothesis, not validated willingness to pay. Payments and the hold/release/refund ledger are simulated; they do not constitute a bank escrow service.
+
+For an illustrative 100,000 UZS placement with 15% commission, gross transaction value is 100,000 UZS, platform commission is 15,000 UZS and conditional operator accrual is 85,000 UZS. Contribution margin must additionally subtract actual acquiring fees, moderation/support time, refunds, media processing and hosting costs. Those inputs are not yet measured and must not be presented as known margins.
+
+The interview should test whether owners accept a commission for incremental bookings and understand that unused time can mean missed revenue; whether customers understand the price per play and the selected play count; and how each side expects cancellation, non-performance and dispute handling to work. Compare transaction commission, owner subscription with lower commission, and a hybrid without claiming prices are validated. Defer paid priority placement and creative-production services until the basic process has repeat use.
+
+Track qualified request → acceptance by every selected screen owner → scheduled → browser starts, median time to owner decision, revision rate, cancellation/dispute rate and repeat use. Occupancy should distinguish reserved calendar capacity from completed browser plays; neither is proof of physical outdoor display. Audience reach is an owner estimate, not playback telemetry. Real payment, real display and repeat paid transaction evidence are needed to validate the business model.
+
+Before commercial launch decide operator eligibility, authorized payment/settlement structure, contract wording and electronic signing, cancellation windows and partial refunds, minimum booking periods, and pilot operator recruitment. Hardware and CMS choice remains an open question at the user's request.

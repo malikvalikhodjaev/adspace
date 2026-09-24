@@ -1,0 +1,206 @@
+.screen-analytics {
+  margin: 12px 0 34px;
+}
+.screen-analytics-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 22px;
+}
+.screen-analytics-heading h2 {
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.1;
+  margin: 5px 0 9px;
+}
+.screen-analytics-heading .muted {
+  margin: 0;
+}
+.mvp .screen-analytics-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+}
+.screen-analytics-date input {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  padding: 10px 11px;
+  font: inherit;
+}
+.screen-analytics-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid #202828;
+  border-bottom: 1px solid #202828;
+  margin-bottom: 24px;
+}
+.screen-analytics-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 19px 18px;
+  border-right: 1px solid var(--line);
+}
+.screen-analytics-metrics > div:first-child {
+  padding-left: 0;
+}
+.screen-analytics-metrics > div:last-child {
+  border-right: 0;
+}
+.screen-analytics-metrics span,
+.screen-analytics-metrics small {
+  color: #626666;
+  font-size: 12px;
+}
+.screen-analytics-metrics strong {
+  font-size: clamp(29px, 3vw, 42px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.screen-analytics-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+.screen-analytics-table {
+  min-width: 850px;
+}
+.screen-analytics-row {
+  display: grid;
+  grid-template-columns: minmax(175px, 1.3fr) minmax(350px, 2.5fr) minmax(
+      105px,
+      0.7fr
+    ) minmax(100px, 0.7fr);
+  align-items: center;
+  gap: 17px;
+  padding: 12px 17px;
+  border-bottom: 1px solid var(--line);
+}
+.screen-analytics-row:last-child {
+  border-bottom: 0;
+}
+.screen-analytics-row.has-bookings {
+  box-shadow: inset 3px 0 #b83242;
+}
+.screen-analytics-column-head {
+  color: #626666;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.035em;
+  background: #faf9f8;
+}
+.screen-analytics-name,
+.screen-analytics-total {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.screen-analytics-name strong {
+  font-size: 15px;
+}
+.screen-analytics-name small,
+.screen-analytics-total small {
+  font-size: 11px;
+  color: #626666;
+}
+.screen-analytics-total strong {
+  font-size: 19px;
+}
+.screen-analytics-days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+  text-align: center;
+}
+.screen-analytics-days > span {
+  white-space: nowrap;
+}
+.screen-analytics-day {
+  position: relative;
+  overflow: hidden;
+  height: 49px;
+  border: 1px solid #e4dcda;
+  border-radius: 5px;
+  background: #f8f6f5;
+  cursor: pointer;
+}
+.screen-analytics-day > span {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #e8a1a4;
+}
+.screen-analytics-day strong {
+  position: relative;
+  z-index: 1;
+  font-size: 11px;
+}
+.screen-analytics-day:hover,
+.screen-analytics-day:focus-visible {
+  border-color: #a62d3a;
+  outline: none;
+}
+.screen-analytics-day.is-closed {
+  background: repeating-linear-gradient(
+    135deg,
+    #f4f0ef,
+    #f4f0ef 5px,
+    #e8e1df 5px,
+    #e8e1df 6px
+  );
+}
+.screen-analytics-open {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  justify-self: end;
+  border: 0;
+  background: transparent;
+  color: #9c2937;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.screen-analytics-open:hover {
+  text-decoration: underline;
+}
+.screen-analytics-note {
+  color: #626666;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 12px 0 0;
+}
+.screen-analytics-empty {
+  margin: 0;
+  padding: 30px 18px;
+  color: #626666;
+}
+@media (max-width: 800px) {
+  .screen-analytics-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .mvp .screen-analytics-date {
+    align-self: start;
+  }
+  .screen-analytics-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .screen-analytics-metrics > div:nth-child(2) {
+    border-right: 0;
+  }
+  .screen-analytics-metrics > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+  .screen-analytics-metrics > div:nth-child(3) {
+    padding-left: 0;
+  }
+}
