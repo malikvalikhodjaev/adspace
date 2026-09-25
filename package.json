@@ -1,6 +1,6 @@
 {
   "name": "adspace-uz",
-  "version": "0.2.33",
+  "version": "0.2.34",
   "private": true,
   "engines": {
     "node": ">=22.13.0"
@@ -20,7 +20,8 @@
     "test:navigation": "node scripts/test-navigation.mjs",
     "test:calendar": "node scripts/test-calendar.mjs",
     "test:analytics": "node scripts/test-analytics.mjs",
-    "test:domain": "node scripts/test-domain.mjs"
+    "test:domain": "node scripts/test-domain.mjs",
+    "photos:previews": "node scripts/build-reference-previews.mjs"
   },
   "dependencies": {
     "@base-ui/react": "1.7.0",
@@ -62,6 +63,7 @@
     "oxfmt": "0.61.0",
     "oxlint": "1.76.0",
     "oxlint-tsgolint": "7.0.2001",
+    "sharp": "0.34.5",
     "tailwindcss": "4.2.1",
     "typescript": "5.9.3",
     "vite": "8.0.13",

@@ -23,6 +23,8 @@ for (const screen of screens) {
   assert.ok(screen.source && Number.isInteger(screen.page));
   assert.ok(screen.photo.startsWith('/reference-screens/'));
   assert.ok(existsSync(join(root, 'public', screen.photo)), `Missing photo: ${screen.photo}`);
+  const preview = exports.referencePreviewPath(screen.photo);
+  assert.ok(existsSync(join(root, 'public', preview)), `Missing preview: ${preview}`);
 }
 
 const suppliers = new Set(screens.map((screen) => screen.supplier || '7Media'));

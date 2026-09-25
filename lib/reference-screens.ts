@@ -16,6 +16,10 @@ export type ReferenceScreen = {
   cityCode?: string | null;
 };
 
+export function referencePreviewPath(photo: string): string {
+  return photo.replace('/reference-screens/', '/reference-screens/previews/').replace(/\.(jpe?g|png)$/i, '.webp');
+}
+
 // These are documented real-world examples, not owner-published Maydonlar inventory.
 // Do not derive a per-play price or available calendar slots from monthly brochures.
 const originalReferences: ReferenceScreen[] = [

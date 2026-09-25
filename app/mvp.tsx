@@ -35,7 +35,7 @@ import {
   type Asset,
 } from '@/lib/model';
 import { money } from '@/lib/catalog';
-import { referenceScreens } from '@/lib/reference-screens';
+import { referencePreviewPath, referenceScreens } from '@/lib/reference-screens';
 import { compactDateRange } from '@/lib/date-labels';
 import {
   auditActionLabel,
@@ -825,7 +825,14 @@ export default function Mvp({
                     onClick={() => setReferenceId(s.id)}
                     aria-label={t('Подробнее об экране ', 'Ekran haqida ma’lumot: ') + s.name}
                   >
-                    <img src={s.photo} alt={`${s.name}: ${uz ? s.place : s.placeRu}`} loading="lazy" />
+                    <img
+                      src={referencePreviewPath(s.photo)}
+                      width={960}
+                      height={540}
+                      alt={`${s.name}: ${uz ? s.place : s.placeRu}`}
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <span className="visual-arrow"><ArrowUpRight size={22} /></span>
                   </button>
                   <div className="screen-copy">
