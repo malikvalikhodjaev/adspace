@@ -35,6 +35,7 @@ import {
   type Asset,
 } from '@/lib/model';
 import { money } from '@/lib/catalog';
+import { mixCatalogCards } from '@/lib/catalog-order';
 import { referencePreviewPath, referenceScreens } from '@/lib/reference-screens';
 import { compactDateRange } from '@/lib/date-labels';
 import {
@@ -431,6 +432,7 @@ export default function Mvp({
       !budget &&
       !reach,
   );
+  const catalogCards = mixCatalogCards(referenceVisible, visible);
   const bookingDurations = commonDurations(picked);
   const bookingSeconds = bookingDurations.includes(playSeconds as 10 | 15 | 30)
     ? playSeconds
@@ -817,7 +819,10 @@ export default function Mvp({
               <CityMap surfaces={visible} onSelect={(s) => setDetailId(s.id)} />
             )}
             <div className="screen-grid">
-              {referenceVisible.map((s) => (
+              {catalogCards.map((entry, i) => {
+                if (entry.kind === 'reference') {
+                  const s = entry.screen;
+                  return (
                 <article key={s.id} className="screen-card screen-card-reference">
                   <button
                     type="button"
@@ -861,8 +866,10 @@ export default function Mvp({
                     </div>
                   </div>
                 </article>
-              ))}
-              {visible.map((s, i) => (
+                  );
+                }
+                const s = entry.screen;
+                return (
                 <article key={s.id} className="screen-card">
                   <button
                     className={'screen-visual tone-' + (i % 3)}
@@ -938,7 +945,8 @@ export default function Mvp({
                     </div>
                   </div>
                 </article>
-              ))}
+                );
+              })}
             </div>
             {!visible.length && !referenceVisible.length && (
               <div className="empty">
