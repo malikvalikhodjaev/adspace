@@ -35,6 +35,7 @@ import {
   type Asset,
 } from '@/lib/model';
 import { money } from '@/lib/catalog';
+import { referenceScreens } from '@/lib/reference-screens';
 import { compactDateRange } from '@/lib/date-labels';
 import {
   auditActionLabel,
@@ -110,6 +111,8 @@ export default function Mvp({
     [map, setMap] = useState(false),
     [selected, setSelected] = useState<string[]>([]),
     [detailId, setDetailId] = useState(''),
+    [referenceId, setReferenceId] = useState(''),
+    [showAllReferences, setShowAllReferences] = useState(false),
     [calendarId, setCalendarId] = useState(''),
     [calendarDay, setCalendarDay] = useState(''),
     [calendarReturnView, setCalendarReturnView] = useState('operator'),
@@ -140,6 +143,7 @@ export default function Mvp({
     moderator = admin || user?.role === 'moderator',
     operator = admin || user?.role === 'operator';
   const detail = data.surfaces.find((x) => x.id === detailId),
+    referenceDetail = referenceScreens.find((x) => x.id === referenceId),
     calendarSurface = data.surfaces.find((x) => x.id === calendarId),
     active = data.campaigns.find((x) => x.id === campaignId),
     picked = data.surfaces.filter((x) => selected.includes(x.id));
@@ -420,6 +424,14 @@ export default function Mvp({
       (!budget || s.price <= +budget) &&
       (!reach || s.reach >= +reach),
   );
+  const referenceVisible = referenceScreens.filter(
+    (s) =>
+      (s.name + s.place + s.description).toLowerCase().includes(q.toLowerCase()) &&
+      (cityFilter === 'all' || cityFilter === '1726') &&
+      district === 'all' &&
+      !budget &&
+      !reach,
+  );
   const bookingDurations = commonDurations(picked);
   const bookingSeconds = bookingDurations.includes(playSeconds as 10 | 15 | 30)
     ? playSeconds
@@ -665,7 +677,7 @@ export default function Mvp({
               </div>
               <div className="intro-count">
                 <strong>{visible.length.toString().padStart(2, '0')}</strong>
-                <span>{t('экранов в каталоге', 'katalogdagi ekranlar')}</span>
+                <span>{t('экранов с календарём', 'taqvimli ekranlar')}</span>
               </div>
             </section>
             {selectedOccasion && (
@@ -805,6 +817,59 @@ export default function Mvp({
             {map && (
               <CityMap surfaces={visible} onSelect={(s) => setDetailId(s.id)} />
             )}
+            {!!referenceVisible.length && (
+              <section className="reference-section" aria-labelledby="reference-heading">
+                <div className="reference-heading">
+                  <div>
+                    <span className="reference-eyebrow">7 MEDIA · 2026</span>
+                    <h2 id="reference-heading">
+                      {t('Реальные экраны Ташкента', 'Toshkentdagi haqiqiy ekranlar')}
+                    </h2>
+                    <p>
+                      {t(
+                        'Фото и параметры из каталогов операторов. Цена за один показ и свободное время пока не подтверждены — бронирование этих экранов не открыто.',
+                        'Rasmlar va o‘lchamlar ekran egasining katalogidan olingan. Bir ko‘rsatish narxi va bo‘sh vaqt hali tasdiqlanmagan — bu ekranlarni hozir band qilib bo‘lmaydi.',
+                      )}
+                    </p>
+                  </div>
+                  {referenceVisible.length > 4 && (
+                    <button
+                      className="secondary"
+                      type="button"
+                      onClick={() => setShowAllReferences((value) => !value)}
+                    >
+                      {showAllReferences
+                        ? t('Свернуть', 'Kamroq ko‘rish')
+                        : t(`Все ${referenceVisible.length} экранов`, `Barcha ${referenceVisible.length} ekran`)}
+                    </button>
+                  )}
+                </div>
+                <div className="reference-grid">
+                  {(showAllReferences || q ? referenceVisible : referenceVisible.slice(0, 4)).map((s) => (
+                    <button
+                      className="reference-card"
+                      type="button"
+                      key={s.id}
+                      onClick={() => setReferenceId(s.id)}
+                    >
+                      <img src={s.photo} alt={`${s.name}: ${s.place}`} loading="lazy" />
+                      <span className="reference-card-body">
+                        <span className="reference-card-top">{s.size} · {s.resolution}</span>
+                        <strong>{s.name}</strong>
+                        <span>{s.place}</span>
+                        <span className="reference-more">
+                          {t('Фото и описание', 'Rasm va ma’lumot')} <ArrowUpRight size={16} />
+                        </span>
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </section>
+            )}
+            <div className="catalog-available-title">
+              <h2>{t('Экраны с календарём', 'Taqvimli ekranlar')}</h2>
+              <p>{t('Здесь можно выбрать время и отправить запрос владельцу.', 'Bu yerda vaqtni tanlab, ekran egasiga so‘rov yuborish mumkin.')}</p>
+            </div>
             <div className="screen-grid">
               {visible.map((s, i) => (
                 <article key={s.id} className="screen-card">
@@ -889,7 +954,7 @@ export default function Mvp({
             {!visible.length && (
               <div className="empty">
                 <Monitor />
-                <h2>{t('Нет подходящих экранов', 'Mos ekran topilmadi')}</h2>
+                <h2>{t('Нет экранов с доступным календарём', 'Taqvimli ekran topilmadi')}</h2>
                 <p>
                   {t(
                     'Измените фильтры каталога.',
@@ -1654,6 +1719,36 @@ export default function Mvp({
                   </button>
                 )
               )}
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+      <Dialog open={!!referenceDetail} onOpenChange={(open) => !open && setReferenceId('')}>
+        <DialogContent className="mvp wide-dialog reference-dialog">
+          {referenceDetail && (
+            <>
+              <DialogTitle>{referenceDetail.name}</DialogTitle>
+              <DialogDescription>{referenceDetail.place}</DialogDescription>
+              <img
+                className="reference-detail-photo"
+                src={referenceDetail.photo}
+                alt={`${referenceDetail.name}: ${referenceDetail.place}`}
+              />
+              <p>{referenceDetail.description}</p>
+              <div className="spec-sheet">
+                <p>{t('Размер экрана', 'Ekran o‘lchami')}<strong>{referenceDetail.size}</strong></p>
+                <p>{t('Разрешение', 'Ruxsati')}<strong>{referenceDetail.resolution}</strong></p>
+                <p>{t('Время работы', 'Ish vaqti')}<strong>{referenceDetail.hours}</strong></p>
+              </div>
+              <p className="reference-source">
+                {t('Источник', 'Manba')}: {referenceDetail.source}, {t('стр.', 'bet')} {referenceDetail.page}.
+              </p>
+              <p className="reference-availability">
+                {t(
+                  'Экран показан для ознакомления. Владелец ещё не подключил его календарь и цену за один показ к Maydonlar, поэтому отправить запрос пока нельзя.',
+                  'Bu ekran bilan tanishishingiz mumkin. Egasi hali Maydonlar’ga taqvim va bir ko‘rsatish narxini qo‘shmagan. Hozircha so‘rov yuborib bo‘lmaydi.',
+                )}
+              </p>
             </>
           )}
         </DialogContent>

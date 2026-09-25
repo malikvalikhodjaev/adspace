@@ -89,7 +89,7 @@ try {
   }
   assert.ok(ready, logs);
   const health = await call('/api/health');
-  assert.equal(health.b.version, '0.2.28');
+  assert.equal(health.b.version, '0.2.30');
   pass('health reports the published version');
   const homePage = await call('/');
   assert.match(homePage.b, /<html lang="uz"/);
