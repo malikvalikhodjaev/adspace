@@ -414,8 +414,6 @@ export default function Mvp({
   const visible = data.surfaces.filter(
     (s) =>
       s.status === 'published' &&
-      !s.demo &&
-      !!s.photoId &&
       !data.blocked.includes(s.owner) &&
       (s.name + s.address + s.district + s.operator + (cityByCode(s.cityCode || '1726')?.uz || ''))
         .toLowerCase()
@@ -427,8 +425,8 @@ export default function Mvp({
   );
   const referenceVisible = referenceScreens.filter(
     (s) =>
-      (s.name + s.place + s.placeRu + s.description + s.descriptionRu).toLowerCase().includes(q.toLowerCase()) &&
-      (cityFilter === 'all' || cityFilter === '1726') &&
+      [s.name, s.place, s.placeRu, s.description, s.descriptionRu, s.supplier].filter(Boolean).join(' ').toLowerCase().includes(q.toLowerCase()) &&
+      (cityFilter === 'all' || (s.cityCode === undefined ? '1726' : s.cityCode) === cityFilter) &&
       district === 'all' &&
       !budget &&
       !reach,
@@ -831,7 +829,7 @@ export default function Mvp({
                     <span className="visual-arrow"><ArrowUpRight size={22} /></span>
                   </button>
                   <div className="screen-copy">
-                    <div className="card-meta"><span>7 MEDIA · 2026</span></div>
+                    <div className="card-meta"><span>{s.supplier || '7Media'}</span></div>
                     <h2><button type="button" onClick={() => setReferenceId(s.id)}>{s.name}</button></h2>
                     <p>{uz ? s.place : s.placeRu}</p>
                     <div className="spec-row">
@@ -842,8 +840,8 @@ export default function Mvp({
                     </div>
                     <div className="card-bottom">
                       <div>
-                        <strong>{t('Условия уточняются', 'Shartlar aniqlanmoqda')}</strong>
-                        <small>{t('Бронирование пока закрыто', 'Hozircha band qilib bo‘lmaydi')}</small>
+                        <strong>{t('Цена по запросу', 'Narx so‘rov bo‘yicha')}</strong>
+                        <small>{t('По каталогу оператора', 'Operator katalogidan')}</small>
                       </div>
                       <button
                         type="button"
@@ -1171,10 +1169,7 @@ export default function Mvp({
                       </p>
                       {s.status === 'published' && !s.photoId && (
                         <p className="muted">
-                          {t(
-                            'Добавьте фото экрана, чтобы карточка появилась в каталоге.',
-                            'Ekran katalogda ko‘rinishi uchun suratini qo‘shing.',
-                          )}
+                          {t('Добавьте фото: пока в каталоге показана карточка без снимка.', 'Surat qo‘shing: hozir katalogda ekran suratsiz ko‘rinadi.')}
                         </p>
                       )}
                       <div className="button-row">
@@ -1726,8 +1721,11 @@ export default function Mvp({
                 src={referenceDetail.photo}
                 alt={`${referenceDetail.name}: ${uz ? referenceDetail.place : referenceDetail.placeRu}`}
               />
-              <p>{uz ? referenceDetail.description : referenceDetail.descriptionRu}</p>
+              {(uz ? referenceDetail.description : referenceDetail.descriptionRu) && (
+                <p>{uz ? referenceDetail.description : referenceDetail.descriptionRu}</p>
+              )}
               <div className="spec-sheet">
+                <p>{t('Цена на Maydonlar', 'Maydonlar narxi')}<strong>{t('По запросу', 'So‘rov bo‘yicha')}</strong></p>
                 <p>{t('Размер экрана', 'Ekran o‘lchami')}<strong>{referenceDetail.size}</strong></p>
                 <p>{t('Разрешение', 'Ruxsati')}<strong>{referenceDetail.resolution}</strong></p>
                 <p>{t('Время работы', 'Ish vaqti')}<strong>{uz ? referenceDetail.hours : referenceDetail.hoursRu}</strong></p>

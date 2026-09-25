@@ -1,17 +1,15 @@
-# Real-screen reference catalogue
+# Photographs and source-backed screen references
 
-The catalogue contains seven documented screens in `lib/reference-screens.ts`. Their photographs were extracted unchanged from the operator PDFs supplied for the project; the source PDFs themselves are not copied into the public repository. Each card cites its brochure and page. The photos show the screen in place, rather than an abstract device mockup.
+The public catalogue has 54 screen-reference cards with 54 distinct local photographs. They sit in the existing screen grid, not in a separate promotional section. The cards are sourced from three operators:
 
-| Screen | Source page | Photograph |
-| --- | --- | --- |
-| Park in Mall | `7Media - Park in Mall.pdf`, p. 1 | `park-in-mall.jpg` |
-| Hotel Side 3D | `7Media Commercial 2026 — Tashkent City Mall - ENG.pdf`, p. 7 | `hotel-side-3d.jpg` |
-| Park Side Central | same, p. 8 | `park-side-central.jpg` |
-| Park Side Corner | same, p. 9 | `park-side-corner.jpg` |
-| B. Zakirov Entrance | same, p. 10 | `zakirov-entrance.jpg` |
-| Big Darxan | `7 Media - Commercial Offer 2026.pdf`, p. 8 | `big-darxan.jpg` |
-| Oybek 1 | same, p. 16 | `oybek-1.jpg` |
+| Operator | Cards | Source |
+| --- | ---: | --- |
+| 7Media | 34 | `7Media - Park in Mall.pdf` p. 1; `7Media Commercial 2026 — Tashkent City Mall - ENG.pdf` pp. 7–10; `7 Media - Commercial Offer 2026.pdf` pp. 4–32 |
+| M-Exclusive | 15 | [Operator LED catalogue](https://m-exclusive.uz/catalog/catalog.pdf), pp. 4–18 |
+| Ahad Mix LED City | 5 | `file.pdf`, pp. 3–7 |
 
-These are *reference cards*, not screens published by a verified Maydonlar owner. They appear in the same public card grid as owner-published screens, with matching photo and specification chips. They do not have live availability, a Maydonlar player, a confirmed per-play tariff, or a booking button. The six original demo surfaces are hidden from this public grid, not deleted from server state or the QA workflow. Owner-published surfaces without a photo are also omitted from the public grid until the owner uploads one; the owner cabinet explains this, while direct links and existing bookings remain intact. Brochure prices are for a month and cannot be divided into a reliable price per show. Before an owner can publish one of these as bookable inventory, confirm ownership/authority, specifications, current operating hours, photos, accepted content, play price and schedule. Avoid merging a reference ID with an owner-controlled surface ID automatically.
+The supplied PDFs are not copied to the public repository. Photographs from 7Media and M-Exclusive were extracted from their PDF image objects. Ahad Mix slides embed the entire page as a single bitmap; only the photograph region was rendered, without retouching. `scripts/extract-reference-photos.py` reproduces the 47 newly imported local images from the three source PDFs. Seven earlier 7Media photos remain unchanged. Each reference card retains its exact source and page in the detail view, and its dimensions, resolution, hours and location were transcribed from that same page. No stock imagery or generic agency gallery photo was attributed to a particular screen.
 
-Other supplied material was reviewed: `file.pdf` is an Ahad Mix / LED City presentation with screen-specific photographs and package pricing (for example, Piramit on p. 3), but it is a scan and needs a separate verification pass before import. Public sites [MediaBaza](https://mediabaza.uz/), [Muna Media](https://www.munamedia.me/uz/ooh/led-screens), [Focus Ads](https://focusads.uz/uz/) and [M-Exclusive](https://m-exclusive.uz/Uz/services/led) were checked on 25 September 2026. They describe LED services or collections; their publicly visible pages did not provide a dependable one-to-one combination of screen passport and photo for this first import. Do not attach a generic agency photo to a specific screen merely because it is nearby on a page.
+Reference cards are not owner-published Maydonlar inventory. The operator has not connected these screens' calendar or set a Maydonlar per-play price, so the price field reads “Цена по запросу” and booking is unavailable. **The original six configured screen cards, their prices, booking rules and existing orders are unchanged and visible in the same catalogue.** A reference photograph is not attached to one of those original cards unless it is verified to depict that exact screen. Supplier monthly brochure prices have not been substituted for platform per-play or daily tariffs.
+
+The other supplied public sites were checked on 25 September 2026: [MediaBaza](https://mediabaza.uz/), [Muna Media](https://www.munamedia.me/uz/ooh/led-screens), [Focus Ads](https://focusads.uz/uz/) and [M-Exclusive](https://m-exclusive.uz/services/led). Only the M-Exclusive downloadable catalogue provided a dependable page-by-page screen photograph and specification pairing. The other sites describe services or show gallery photos without enough screen-specific data to attribute a photo and location responsibly. They can be revisited when an operator supplies a screen passport.
