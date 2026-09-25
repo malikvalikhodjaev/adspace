@@ -14,13 +14,14 @@ runInNewContext(compiled, { exports });
 const screens = exports.referenceScreens;
 
 assert.ok(Array.isArray(screens));
-assert.ok(screens.length >= 50, `Expected at least 50 photos, found ${screens.length}`);
+assert.equal(screens.length, 63, `Expected 63 photos, found ${screens.length}`);
 assert.equal(new Set(screens.map((screen) => screen.id)).size, screens.length);
 assert.equal(new Set(screens.map((screen) => screen.photo)).size, screens.length);
 
 for (const screen of screens) {
-  assert.ok(screen.name && screen.place && screen.placeRu && screen.size && screen.resolution);
-  assert.ok(screen.source && Number.isInteger(screen.page));
+  assert.ok(screen.name && screen.place && screen.placeRu && screen.size);
+  assert.ok(screen.source && (Number.isInteger(screen.page) || screen.sourceUrl));
+  if (screen.sourceUrl) assert.match(screen.sourceUrl, /^https:\/\//);
   assert.ok(screen.photo.startsWith('/reference-screens/'));
   assert.ok(existsSync(join(root, 'public', screen.photo)), `Missing photo: ${screen.photo}`);
   const preview = exports.referencePreviewPath(screen.photo);
@@ -28,5 +29,5 @@ for (const screen of screens) {
 }
 
 const suppliers = new Set(screens.map((screen) => screen.supplier || '7Media'));
-assert.deepEqual([...suppliers].sort(), ['7Media', 'Ahad Mix', 'M-Exclusive']);
+assert.deepEqual([...suppliers].sort(), ['7Media', 'Ahad Mix', 'Light Media Invest', 'M-Exclusive', 'TOPIC']);
 console.log(`${screens.length} screen cards, ${screens.length} photographs, ${suppliers.size} suppliers: OK`);

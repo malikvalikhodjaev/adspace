@@ -6,12 +6,15 @@ export type ReferenceScreen = {
   description?: string;
   descriptionRu?: string;
   size: string;
-  resolution: string;
-  hours: string;
-  hoursRu: string;
+  resolution?: string;
+  hours?: string;
+  hoursRu?: string;
   photo: string;
   source: string;
-  page: number;
+  page?: number;
+  sourceUrl?: string;
+  format?: string;
+  formatRu?: string;
   supplier?: string;
   cityCode?: string | null;
 };
@@ -190,6 +193,135 @@ const ahadMixRows: ScreenRow[] = [
   [7, 'Sagbon', 'Sag‘bon chorrahasi', 'Перекрёсток Сагбон', '6 × 3 m', '1920 × 1080 px'],
 ];
 
+// Public operator pages identify these specific screens and show the photograph
+// on the same page. They are examples only: no live slot inventory is implied.
+const publicWebReferences: ReferenceScreen[] = [
+  {
+    id: 'ref-lmi-shahriston',
+    name: 'Shahriston · Amir Temur',
+    place: 'Amir Temur va Shahriston ko‘chalari chorrahasi, teleminora yonida',
+    placeRu: 'Перекрёсток Амира Темура и Шахристанской, у телебашни',
+    size: '7 × 4 m · 2 ekran',
+    photo: '/reference-screens/lmi-s1.jpg',
+    source: 'Light Media Invest',
+    sourceUrl: 'https://lmi.uz/led-advertising/',
+    supplier: 'Light Media Invest',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-lmi-parkent-182',
+    name: 'Parkent · Aviator',
+    place: 'Parkent ko‘chasi 182, Aviator savdo markazi yonida',
+    placeRu: 'Улица Паркент, 182, у торгового центра Aviator',
+    size: '15 × 5 m',
+    photo: '/reference-screens/lmi-s4.jpg',
+    source: 'Light Media Invest',
+    sourceUrl: 'https://lmi.uz/led-advertising/',
+    supplier: 'Light Media Invest',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-lmi-shastri',
+    name: 'Shastri · Credit Asia',
+    place: 'Mirzo Ulug‘bek shohko‘chasi, Credit Asia va Parkent bozori yonida',
+    placeRu: 'Проспект Мирзо Улугбека, у Credit Asia и Паркентского рынка',
+    size: '13 × 6 m',
+    photo: '/reference-screens/lmi-s7.jpg',
+    source: 'Light Media Invest',
+    sourceUrl: 'https://lmi.uz/led-advertising/',
+    supplier: 'Light Media Invest',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-lmi-furqat',
+    name: 'Furqat · Xalqlar do‘stligi',
+    place: 'Furqat ko‘chasi, Xalqlar do‘stligi saroyi yonida',
+    placeRu: 'Улица Фурката, у Дворца дружбы народов',
+    size: '8 × 4 m',
+    photo: '/reference-screens/lmi-s10.jpg',
+    source: 'Light Media Invest',
+    sourceUrl: 'https://lmi.uz/led-advertising/',
+    supplier: 'Light Media Invest',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-lmi-fargona-yuli',
+    name: 'Farg‘ona yo‘li · Guruch bozori',
+    place: 'Farg‘ona yo‘li, Guruch bozori yonida',
+    placeRu: 'Ферганская дорога, у Рисового базара',
+    size: '13 × 6 m',
+    photo: '/reference-screens/lmi-s13.jpg',
+    source: 'Light Media Invest',
+    sourceUrl: 'https://lmi.uz/led-advertising/',
+    supplier: 'Light Media Invest',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-topic-gek-112',
+    name: 'GEK-112 · Osiyo',
+    place: 'Osiyo ko‘chasi, Makro supermarketi yonida',
+    placeRu: 'Улица Осиё, у супермаркета Makro',
+    size: '18 m²',
+    resolution: '720 × 360 px',
+    hours: '07:00–23:00',
+    hoursRu: '07:00–23:00',
+    photo: '/reference-screens/topic-gek-112.jpg',
+    source: 'TOPIC · GEK-112',
+    sourceUrl: 'https://topic-media.uz/locations/GEK-112/',
+    supplier: 'TOPIC',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-topic-mrt-113',
+    name: 'MRT-113 · Amir Temur',
+    place: 'Amir Temur shohko‘chasi 86, Qozog‘iston kinoteatri yonida',
+    placeRu: 'Проспект Амира Темура, 86, у кинотеатра «Казахстан»',
+    size: '12,29 m²',
+    resolution: '2304 × 128 + 256 × 384 px',
+    hours: '07:00–23:00',
+    hoursRu: '07:00–23:00',
+    format: 'LED bekat',
+    formatRu: 'LED-остановка',
+    photo: '/reference-screens/topic-mrt-113.jpg',
+    source: 'TOPIC · MRT-113',
+    sourceUrl: 'https://topic-media.uz/locations/MRT-113/',
+    supplier: 'TOPIC',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-topic-mrt-115',
+    name: 'MRT-115 · Farg‘ona yo‘li',
+    place: 'Farg‘ona yo‘li, Fayziobod 8 va Sofiya yonida',
+    placeRu: 'Ферганская дорога, у Файзиабад 8 и «Софии»',
+    size: '12,29 m²',
+    resolution: '2304 × 128 + 256 × 384 px',
+    hours: '07:00–23:00',
+    hoursRu: '07:00–23:00',
+    format: 'LED bekat',
+    formatRu: 'LED-остановка',
+    photo: '/reference-screens/topic-mrt-115.jpg',
+    source: 'TOPIC · MRT-115',
+    sourceUrl: 'https://topic-media.uz/locations/MRT-115/',
+    supplier: 'TOPIC',
+    cityCode: '1726',
+  },
+  {
+    id: 'ref-topic-gek-126',
+    name: 'GEK-126 · Farg‘ona yo‘li',
+    place: 'Farg‘ona yo‘li, MJQ burilishidan 300 m oldin',
+    placeRu: 'Ферганская дорога, за 300 м до поворота на МЖК',
+    size: '18 m²',
+    resolution: '720 × 360 px',
+    hours: '07:00–23:00',
+    hoursRu: '07:00–23:00',
+    photo: '/reference-screens/topic-gek-126.jpg',
+    source: 'TOPIC · GEK-126',
+    sourceUrl: 'https://topic-media.uz/locations/GEK-126/',
+    supplier: 'TOPIC',
+    cityCode: '1726',
+  },
+];
+
 function fromRows(rows: ScreenRow[], supplier: string, source: string, photoPrefix: string, extension = 'jpg'): ReferenceScreen[] {
   return rows.map(([page, name, place, placeRu, size, resolution, hours]) => ({
     id: `ref-${photoPrefix}-p${page}`,
@@ -213,4 +345,5 @@ export const referenceScreens: ReferenceScreen[] = [
   ...fromRows(sevenMediaRows, '7Media', '7 Media - Commercial Offer 2026.pdf', '7media'),
   ...fromRows(mExclusiveRows, 'M-Exclusive', 'M-Exclusive LED catalogue', 'm-exclusive'),
   ...fromRows(ahadMixRows, 'Ahad Mix', 'file.pdf — Ahad Mix LED City', 'ahad-mix'),
+  ...publicWebReferences,
 ];

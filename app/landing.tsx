@@ -1,5 +1,6 @@
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { catalogHref } from '@/lib/occasions';
+import { referencePreviewPath } from '@/lib/reference-screens';
 
 export default function Landing({
   uz,
@@ -64,18 +65,29 @@ export default function Landing({
             )}
           </p>
         </div>
-        <figure className="landing-art">
-          <img
-            src="/tashkent-city-collage.png"
-            width="1448"
-            height="1086"
-            alt={t(
-              'Иллюстрация Ташкента с большими городскими экранами',
-              'Katta shahar ekranlari bilan Toshkent illyustratsiyasi',
-            )}
-            fetchPriority="high"
-          />
-          <figcaption>MAYDONLAR / TASHKENT</figcaption>
+        <figure className="landing-art landing-photo-mosaic">
+          <div className="landing-photo-grid">
+            {[
+              { photo: '/reference-screens/park-in-mall.jpg', supplier: '7MEDIA', place: 'Tashkent City' },
+              { photo: '/reference-screens/m-exclusive-p4.jpg', supplier: 'M-EXCLUSIVE', place: 'Samarqand Darvoza' },
+              { photo: '/reference-screens/topic-gek-112.jpg', supplier: 'TOPIC', place: 'Osiyo ko‘chasi' },
+              { photo: '/reference-screens/lmi-s1.jpg', supplier: 'LIGHT MEDIA INVEST', place: 'Shahriston' },
+            ].map((screen, index) => (
+              <div className="landing-photo" key={screen.supplier}>
+                <img
+                  src={referencePreviewPath(screen.photo)}
+                  width="960"
+                  height="540"
+                  alt={`${screen.place} · ${screen.supplier}`}
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                  decoding="async"
+                />
+                <span>{screen.supplier}</span>
+              </div>
+            ))}
+          </div>
+          <figcaption>{t('Реальные экраны · фото из каталогов операторов', 'Haqiqiy ekranlar · operatorlar katalogidan suratlar')}</figcaption>
         </figure>
       </section>
       <section

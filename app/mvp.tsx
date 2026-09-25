@@ -840,10 +840,10 @@ export default function Mvp({
                     <h2><button type="button" onClick={() => setReferenceId(s.id)}>{s.name}</button></h2>
                     <p>{uz ? s.place : s.placeRu}</p>
                     <div className="spec-row">
-                      <span>{t('Уличный LED', 'Tashqi LED')}</span>
+                      <span>{uz ? s.format || 'Tashqi LED' : s.formatRu || 'Уличный LED'}</span>
                       <span>{s.size}</span>
-                      <span>{s.resolution}</span>
-                      <span>{uz ? s.hours : s.hoursRu}</span>
+                      {s.resolution && <span>{s.resolution}</span>}
+                      {(uz ? s.hours : s.hoursRu) && <span>{uz ? s.hours : s.hoursRu}</span>}
                     </div>
                     <div className="card-bottom">
                       <div>
@@ -1734,11 +1734,13 @@ export default function Mvp({
               <div className="spec-sheet">
                 <p>{t('Цена на Maydonlar', 'Maydonlar narxi')}<strong>{t('По запросу', 'So‘rov bo‘yicha')}</strong></p>
                 <p>{t('Размер экрана', 'Ekran o‘lchami')}<strong>{referenceDetail.size}</strong></p>
-                <p>{t('Разрешение', 'Ruxsati')}<strong>{referenceDetail.resolution}</strong></p>
-                <p>{t('Время работы', 'Ish vaqti')}<strong>{uz ? referenceDetail.hours : referenceDetail.hoursRu}</strong></p>
+                {referenceDetail.resolution && <p>{t('Разрешение', 'Ruxsati')}<strong>{referenceDetail.resolution}</strong></p>}
+                {(uz ? referenceDetail.hours : referenceDetail.hoursRu) && <p>{t('Время работы', 'Ish vaqti')}<strong>{uz ? referenceDetail.hours : referenceDetail.hoursRu}</strong></p>}
               </div>
               <p className="reference-source">
-                {t('Источник', 'Manba')}: {referenceDetail.source}, {t('стр.', 'bet')} {referenceDetail.page}.
+                {t('Источник', 'Manba')}: {referenceDetail.source}
+                {referenceDetail.page ? `, ${t('стр.', 'bet')} ${referenceDetail.page}` : ''}
+                {referenceDetail.sourceUrl && <> · <a href={referenceDetail.sourceUrl} target="_blank" rel="noopener noreferrer">{t('Открыть источник', 'Manbani ochish')}</a></>}
               </p>
               <p className="reference-availability">
                 {t(
