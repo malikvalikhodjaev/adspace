@@ -112,7 +112,6 @@ export default function Mvp({
     [selected, setSelected] = useState<string[]>([]),
     [detailId, setDetailId] = useState(''),
     [referenceId, setReferenceId] = useState(''),
-    [showAllReferences, setShowAllReferences] = useState(false),
     [calendarId, setCalendarId] = useState(''),
     [calendarDay, setCalendarDay] = useState(''),
     [calendarReturnView, setCalendarReturnView] = useState('operator'),
@@ -415,6 +414,8 @@ export default function Mvp({
   const visible = data.surfaces.filter(
     (s) =>
       s.status === 'published' &&
+      !s.demo &&
+      !!s.photoId &&
       !data.blocked.includes(s.owner) &&
       (s.name + s.address + s.district + s.operator + (cityByCode(s.cityCode || '1726')?.uz || ''))
         .toLowerCase()
@@ -426,7 +427,7 @@ export default function Mvp({
   );
   const referenceVisible = referenceScreens.filter(
     (s) =>
-      (s.name + s.place + s.description).toLowerCase().includes(q.toLowerCase()) &&
+      (s.name + s.place + s.placeRu + s.description + s.descriptionRu).toLowerCase().includes(q.toLowerCase()) &&
       (cityFilter === 'all' || cityFilter === '1726') &&
       district === 'all' &&
       !budget &&
@@ -676,8 +677,8 @@ export default function Mvp({
                 </p>
               </div>
               <div className="intro-count">
-                <strong>{visible.length.toString().padStart(2, '0')}</strong>
-                <span>{t('экранов с календарём', 'taqvimli ekranlar')}</span>
+                <strong>{(referenceVisible.length + visible.length).toString().padStart(2, '0')}</strong>
+                <span>{t('экранов в каталоге', 'katalogdagi ekranlar')}</span>
               </div>
             </section>
             {selectedOccasion && (
@@ -706,8 +707,8 @@ export default function Mvp({
             <div className="catalog-toolbar">
               <p>
                 {t(
-                  'Выберите один или несколько экранов для размещения.',
-                  'Joylashtirish uchun bir yoki bir nechta ekran tanlang.',
+                  'Смотрите экраны и их параметры. У подключённых владельцев можно выбрать время показа.',
+                  'Ekranlar va ularning o‘lchamlarini ko‘ring. Maydonlar’ga ulangan ekranlarda ko‘rsatish vaqtini tanlash mumkin.',
                 )}
               </p>
               <button className="secondary" onClick={() => setMap(!map)}>
@@ -817,60 +818,45 @@ export default function Mvp({
             {map && (
               <CityMap surfaces={visible} onSelect={(s) => setDetailId(s.id)} />
             )}
-            {!!referenceVisible.length && (
-              <section className="reference-section" aria-labelledby="reference-heading">
-                <div className="reference-heading">
-                  <div>
-                    <span className="reference-eyebrow">7 MEDIA · 2026</span>
-                    <h2 id="reference-heading">
-                      {t('Реальные экраны Ташкента', 'Toshkentdagi haqiqiy ekranlar')}
-                    </h2>
-                    <p>
-                      {t(
-                        'Фото и параметры из каталогов операторов. Цена за один показ и свободное время пока не подтверждены — бронирование этих экранов не открыто.',
-                        'Rasmlar va o‘lchamlar ekran egasining katalogidan olingan. Bir ko‘rsatish narxi va bo‘sh vaqt hali tasdiqlanmagan — bu ekranlarni hozir band qilib bo‘lmaydi.',
-                      )}
-                    </p>
-                  </div>
-                  {referenceVisible.length > 4 && (
-                    <button
-                      className="secondary"
-                      type="button"
-                      onClick={() => setShowAllReferences((value) => !value)}
-                    >
-                      {showAllReferences
-                        ? t('Свернуть', 'Kamroq ko‘rish')
-                        : t(`Все ${referenceVisible.length} экранов`, `Barcha ${referenceVisible.length} ekran`)}
-                    </button>
-                  )}
-                </div>
-                <div className="reference-grid">
-                  {(showAllReferences || q ? referenceVisible : referenceVisible.slice(0, 4)).map((s) => (
-                    <button
-                      className="reference-card"
-                      type="button"
-                      key={s.id}
-                      onClick={() => setReferenceId(s.id)}
-                    >
-                      <img src={s.photo} alt={`${s.name}: ${s.place}`} loading="lazy" />
-                      <span className="reference-card-body">
-                        <span className="reference-card-top">{s.size} · {s.resolution}</span>
-                        <strong>{s.name}</strong>
-                        <span>{s.place}</span>
-                        <span className="reference-more">
-                          {t('Фото и описание', 'Rasm va ma’lumot')} <ArrowUpRight size={16} />
-                        </span>
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              </section>
-            )}
-            <div className="catalog-available-title">
-              <h2>{t('Экраны с календарём', 'Taqvimli ekranlar')}</h2>
-              <p>{t('Здесь можно выбрать время и отправить запрос владельцу.', 'Bu yerda vaqtni tanlab, ekran egasiga so‘rov yuborish mumkin.')}</p>
-            </div>
             <div className="screen-grid">
+              {referenceVisible.map((s) => (
+                <article key={s.id} className="screen-card screen-card-reference">
+                  <button
+                    type="button"
+                    className="screen-visual"
+                    onClick={() => setReferenceId(s.id)}
+                    aria-label={t('Подробнее об экране ', 'Ekran haqida ma’lumot: ') + s.name}
+                  >
+                    <img src={s.photo} alt={`${s.name}: ${uz ? s.place : s.placeRu}`} loading="lazy" />
+                    <span className="visual-arrow"><ArrowUpRight size={22} /></span>
+                  </button>
+                  <div className="screen-copy">
+                    <div className="card-meta"><span>7 MEDIA · 2026</span></div>
+                    <h2><button type="button" onClick={() => setReferenceId(s.id)}>{s.name}</button></h2>
+                    <p>{uz ? s.place : s.placeRu}</p>
+                    <div className="spec-row">
+                      <span>{t('Уличный LED', 'Tashqi LED')}</span>
+                      <span>{s.size}</span>
+                      <span>{s.resolution}</span>
+                      <span>{uz ? s.hours : s.hoursRu}</span>
+                    </div>
+                    <div className="card-bottom">
+                      <div>
+                        <strong>{t('Условия уточняются', 'Shartlar aniqlanmoqda')}</strong>
+                        <small>{t('Бронирование пока закрыто', 'Hozircha band qilib bo‘lmaydi')}</small>
+                      </div>
+                      <button
+                        type="button"
+                        className="add-button"
+                        aria-label={t('Открыть описание ', 'Ma’lumotni ochish: ') + s.name}
+                        onClick={() => setReferenceId(s.id)}
+                      >
+                        <ArrowUpRight size={20} />
+                      </button>
+                    </div>
+                  </div>
+                </article>
+              ))}
               {visible.map((s, i) => (
                 <article key={s.id} className="screen-card">
                   <button
@@ -888,7 +874,6 @@ export default function Mvp({
                         <span>{s.kind}</span>
                       </div>
                     )}
-                    <span className="visual-label">{s.kind}</span>
                     <span className="visual-arrow">
                       <ArrowUpRight size={22} />
                     </span>
@@ -896,7 +881,6 @@ export default function Mvp({
                   <div className="screen-copy">
                     <div className="card-meta">
                       <span>{s.district}</span>
-                      <span>{s.size}</span>
                     </div>
                     <h2>
                       <button onClick={() => setDetailId(s.id)}>
@@ -905,14 +889,14 @@ export default function Mvp({
                     </h2>
                     <p>{s.address}</p>
                     <div className="spec-row">
+                      <span>{s.kind === 'Уличный LED' ? t('Уличный LED', 'Tashqi LED') : s.kind === 'Indoor LED' ? t('В помещении', 'Bino ichida') : s.kind}</span>
+                      <span>{s.size}</span>
+                      <span>{s.width} × {s.height} px</span>
                       <span>
                         ≤ {s.seconds} {t('сек', 'soniya')}
                       </span>
                       <span>
                         {s.opens}–{s.closes}
-                      </span>
-                      <span>
-                        {s.slots} {t('мест для размещений', 'joylashtirish o‘rni')}
                       </span>
                     </div>
                     <button
@@ -951,10 +935,10 @@ export default function Mvp({
                 </article>
               ))}
             </div>
-            {!visible.length && (
+            {!visible.length && !referenceVisible.length && (
               <div className="empty">
                 <Monitor />
-                <h2>{t('Нет экранов с доступным календарём', 'Taqvimli ekran topilmadi')}</h2>
+                <h2>{t('Нет подходящих экранов', 'Mos ekran topilmadi')}</h2>
                 <p>
                   {t(
                     'Измените фильтры каталога.',
@@ -1185,6 +1169,14 @@ export default function Mvp({
                       <p>
                         {s.address} · {money(s.price)}
                       </p>
+                      {s.status === 'published' && !s.photoId && (
+                        <p className="muted">
+                          {t(
+                            'Добавьте фото экрана, чтобы карточка появилась в каталоге.',
+                            'Ekran katalogda ko‘rinishi uchun suratini qo‘shing.',
+                          )}
+                        </p>
+                      )}
                       <div className="button-row">
                         <a
                           className="secondary"
@@ -1728,17 +1720,17 @@ export default function Mvp({
           {referenceDetail && (
             <>
               <DialogTitle>{referenceDetail.name}</DialogTitle>
-              <DialogDescription>{referenceDetail.place}</DialogDescription>
+              <DialogDescription>{uz ? referenceDetail.place : referenceDetail.placeRu}</DialogDescription>
               <img
                 className="reference-detail-photo"
                 src={referenceDetail.photo}
-                alt={`${referenceDetail.name}: ${referenceDetail.place}`}
+                alt={`${referenceDetail.name}: ${uz ? referenceDetail.place : referenceDetail.placeRu}`}
               />
-              <p>{referenceDetail.description}</p>
+              <p>{uz ? referenceDetail.description : referenceDetail.descriptionRu}</p>
               <div className="spec-sheet">
                 <p>{t('Размер экрана', 'Ekran o‘lchami')}<strong>{referenceDetail.size}</strong></p>
                 <p>{t('Разрешение', 'Ruxsati')}<strong>{referenceDetail.resolution}</strong></p>
-                <p>{t('Время работы', 'Ish vaqti')}<strong>{referenceDetail.hours}</strong></p>
+                <p>{t('Время работы', 'Ish vaqti')}<strong>{uz ? referenceDetail.hours : referenceDetail.hoursRu}</strong></p>
               </div>
               <p className="reference-source">
                 {t('Источник', 'Manba')}: {referenceDetail.source}, {t('стр.', 'bet')} {referenceDetail.page}.
@@ -2553,7 +2545,7 @@ function SurfaceForm({
         <a href={locationSource} target="_blank" rel="noreferrer">{t('Источник · 2022', 'Manba · 2022')}</a>
       </p>
       <label className="file-button">
-        {t('Фотография поверхности', 'Maydon surati')}
+        {t('Фото экрана для каталога', 'Katalog uchun ekran surati')}
         <input
           type="file"
           accept="image/png,image/jpeg"
