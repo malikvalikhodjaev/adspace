@@ -35,3 +35,14 @@ export function longDateLabel(date: string, uz: boolean) {
   const name = months[uz ? 'uz' : 'ru'][month - 1];
   return uz ? `${day}-${name} ${year}` : `${day} ${russianDateMonths[month - 1]} ${year}`;
 }
+
+export function compactDateLabel(date: string) {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  return match ? `${match[3]}.${match[2]}.${match[1].slice(2)}` : date;
+}
+
+export function compactDateRange(start: string, end: string) {
+  return start === end
+    ? compactDateLabel(start)
+    : `${compactDateLabel(start)} — ${compactDateLabel(end)}`;
+}

@@ -652,6 +652,37 @@
   background: white;
   text-align: left;
 }
+.campaign-preview {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: #7b6967;
+  background: #f7f4f3;
+}
+.campaign-preview img,
+.campaign-preview video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.campaign-preview-play {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  padding: 3px;
+  box-sizing: content-box;
+  border-radius: 50%;
+  color: white;
+  background: #1d2224cc;
+}
 .campaign-row > div {
   flex: 1;
 }
@@ -1184,8 +1215,13 @@
     gap: 12px;
     flex-wrap: wrap;
   }
+  .campaign-preview {
+    flex-basis: 48px;
+    width: 48px;
+    height: 48px;
+  }
   .campaign-row > div {
-    flex-basis: 100%;
+    flex-basis: calc(100% - 60px);
   }
   .campaign-row > strong {
     margin-left: auto;

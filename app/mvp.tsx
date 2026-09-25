@@ -35,6 +35,13 @@ import {
   type Asset,
 } from '@/lib/model';
 import { money } from '@/lib/catalog';
+import { compactDateRange } from '@/lib/date-labels';
+import {
+  auditActionLabel,
+  auditNoteLabel,
+  auditRoleLabel,
+  auditTimeLabel,
+} from '@/lib/audit-labels';
 import { cityByCode, cityOptions, districtOptions, locationSource } from '@/lib/locations';
 import { commonDurations, maxPlaysPerDay, placementTotal, playDurations, tariff } from '@/lib/pricing';
 import CityMap from './city-map';
@@ -66,6 +73,7 @@ import './mvp.css';
 type ViewData = State & {
   user: User | null;
   reservations: Reservation[];
+  media: Record<string, string>;
   users: User[];
   players: { screen: string; last_seen: string | null }[];
   playback: { campaign: string; count: number; last: string }[];
@@ -78,6 +86,7 @@ const empty: ViewData = {
   commission: 15,
   user: null,
   reservations: [],
+  media: {},
   users: [],
   players: [],
   playback: [],
@@ -898,7 +907,7 @@ export default function Mvp({
                     {selected.length}
                   </strong>
                   <small>
-                    {start} — {end} · {money(total)}
+                    {compactDateRange(start, end)} · {money(total)}
                   </small>
                 </div>
                 <button className="primary" onClick={() => checkout()}>
@@ -1062,9 +1071,15 @@ export default function Mvp({
                           setNote('');
                         }}
                       >
+                        <CampaignPreview
+                          assetId={c.assetId}
+                          mime={data.media[c.id]}
+                          name={c.name}
+                          uz={uz}
+                        />
                         <div>
                           <strong>{c.name}</strong>
-                          <small>{c.start} — {c.end} · {c.from}–{c.to}</small>
+                          <small>{compactDateRange(c.start, c.end)} · {c.from}–{c.to}</small>
                         </div>
                         <strong>{money(c.total)}</strong>
                         <ArrowUpRight size={18} />
@@ -1311,10 +1326,16 @@ export default function Mvp({
                     setAccepted(false);
                   }}
                 >
+                  <CampaignPreview
+                    assetId={c.assetId}
+                    mime={data.media[c.id]}
+                    name={c.name}
+                    uz={uz}
+                  />
                   <div>
                     <strong>{c.name}</strong>
                     <small>
-                      {c.start} — {c.end} · {c.from}–{c.to}
+                      {compactDateRange(c.start, c.end)} · {c.from}–{c.to}
                     </small>
                   </div>
                   {badge(c.status)}
@@ -1511,14 +1532,18 @@ export default function Mvp({
                 .filter((c) => c.surfaceIds.includes(detail.id))
                 .map((c) => (
                   <p key={c.id}>
-                    {c.start} — {c.end} · {c.from}–{c.to} · 1/{detail.slots}
+                    {compactDateRange(c.start, c.end)} · {c.from}–{c.to} ·{' '}
+                    {t(
+                      `Занимает 1 из ${detail.slots} мест в расписании`,
+                      `Jadvaldagi ${detail.slots} o‘rindan 1 tasi band`,
+                    )}
                   </p>
                 ))}
               {data.unavailable
                 .filter((x) => x.id === detail.id)
                 .map((x) => (
                   <p key={x.start}>
-                    {t('Закрыто', 'Yopiq')}: {x.start} — {x.end}
+                    {t('Закрыто', 'Yopiq')}: {compactDateRange(x.start, x.end)}
                   </p>
                 ))}
               {operator && mine(detail) && !preview ? (
@@ -1871,7 +1896,7 @@ export default function Mvp({
             <>
               <DialogTitle>{active.name}</DialogTitle>
               <DialogDescription>
-                {active.start} — {active.end} · {active.from}–{active.to} ·{' '}
+                {compactDateRange(active.start, active.end)} · {active.from}–{active.to} ·{' '}
                 {money(active.total)}
               </DialogDescription>
               {error && (
@@ -2127,15 +2152,9 @@ export default function Mvp({
               <ol className="audit-list">
                 {active.events.map((e, i) => (
                   <li key={i}>
-                    <time>
-                      {new Date(e.at).toLocaleString(uz ? 'uz-UZ' : 'ru-RU', {
-                        timeZone: 'Asia/Tashkent',
-                      })}
-                    </time>
-                    <strong>{e.action}</strong>
-                    <span>
-                      {e.role} · {e.note}
-                    </span>
+                    <time dateTime={e.at}>{auditTimeLabel(e.at)}</time>
+                    <strong>{auditActionLabel(e.action, uz)}</strong>
+                    <span>{auditRoleLabel(e.role, uz)}{e.note ? ` · ${auditNoteLabel(e.note, uz)}` : ''}</span>
                   </li>
                 ))}
               </ol>
@@ -2163,6 +2182,53 @@ export default function Mvp({
         </DialogContent>
       </Dialog>
     </div>
+  );
+}
+function CampaignPreview({
+  assetId,
+  mime,
+  name,
+  uz,
+}: {
+  assetId: string;
+  mime?: string;
+  name: string;
+  uz: boolean;
+}) {
+  const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [assetId]);
+  const source = '/api/assets?id=' + encodeURIComponent(assetId);
+  const description = `${uz ? 'Joylashtirish materiali' : 'Материал размещения'}: ${name}`;
+  return (
+    <span className="campaign-preview" role="img" aria-label={description}>
+      {!failed && mime?.startsWith('image/') ? (
+        <img
+          src={source}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          onError={() => setFailed(true)}
+        />
+      ) : !failed && mime?.startsWith('video/') ? (
+        <>
+          <video
+            src={source}
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            onLoadedMetadata={(event) => {
+              if (event.currentTarget.duration > 0.1)
+                event.currentTarget.currentTime = 0.1;
+            }}
+            onError={() => setFailed(true)}
+          />
+          <Play className="campaign-preview-play" size={15} aria-hidden="true" />
+        </>
+      ) : (
+        <Monitor size={21} aria-hidden="true" />
+      )}
+    </span>
   );
 }
 function download(name: string, text: string, type: string) {

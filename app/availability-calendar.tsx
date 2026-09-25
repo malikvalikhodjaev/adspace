@@ -22,7 +22,7 @@ import {
 import { money } from '@/lib/catalog';
 import { devshowHref } from '@/lib/navigation';
 import { maxPlaysPerDay, tariff } from '@/lib/pricing';
-import { longDateLabel, monthLabel } from '@/lib/date-labels';
+import { compactDateRange, longDateLabel, monthLabel } from '@/lib/date-labels';
 import './availability-calendar.css';
 
 type ClosedPeriod = { id: string; start: string; end: string };
@@ -355,7 +355,10 @@ export default function AvailabilityCalendar({
                         />
                       </span>
                       <strong>
-                        {used}/{surface.slots} {t('занято', 'band')}
+                        {t(
+                          `Занято ${used} из ${surface.slots} мест`,
+                          `${surface.slots} o‘rindan ${used} tasi band`,
+                        )}
                       </strong>
                     </div>
                   );
@@ -393,8 +396,8 @@ export default function AvailabilityCalendar({
                 <p>
                   {closure
                     ? t(
-                        `Закрыт на период ${closure.start} — ${closure.end}`,
-                        `${closure.start} — ${closure.end} davrida yopiq`,
+                        `Закрыт на период ${compactDateRange(closure.start, closure.end)}`,
+                        `${compactDateRange(closure.start, closure.end)} davrida yopiq`,
                       )
                     : t(
                         'Дата открыта для размещений.',
@@ -449,7 +452,10 @@ export default function AvailabilityCalendar({
                       </span>
                       <strong>
                         {canChoose
-                          ? `${free}/${surface.slots} ${t('мест', 'o‘rin')}`
+                          ? t(
+                              `Свободно ${free} из ${surface.slots} мест`,
+                              `${surface.slots} o‘rindan ${free} tasi bo‘sh`,
+                            )
                           : t('Недоступно', 'Tanlab bo‘lmaydi')}
                       </strong>
                     </button>

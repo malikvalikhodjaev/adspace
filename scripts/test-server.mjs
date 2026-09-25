@@ -89,7 +89,7 @@ try {
   }
   assert.ok(ready, logs);
   const health = await call('/api/health');
-  assert.equal(health.b.version, '0.2.27');
+  assert.equal(health.b.version, '0.2.28');
   pass('health reports the published version');
   const homePage = await call('/');
   assert.match(homePage.b, /<html lang="uz"/);
@@ -421,11 +421,13 @@ try {
   const create = (await call('/api/workspace', draft, adv)).b;
   const c = create.campaigns[0];
   assert.equal(c.status, 'draft');
+  assert.equal(create.media[c.id], 'image/png');
   assert.ok(
     !(await call('/api/workspace', undefined, op)).b.campaigns.some(
       (x) => x.id === c.id,
     ),
   );
+  assert.equal((await call('/api/workspace', undefined, op)).b.media[c.id], undefined);
   await call('/api/workspace', { action: 'technical', id: c.id }, op, 400);
   pass('unsubmitted drafts are invisible and cannot be accepted by the screen owner');
   await call('/api/workspace', draft, adv);
@@ -442,11 +444,9 @@ try {
     { action: 'submit', id: c.id, accepted: true },
     adv,
   );
-  assert.ok(
-    (await call('/api/workspace', undefined, op)).b.campaigns.some(
-      (x) => x.id === c.id && x.status === 'moderation',
-    ),
-  );
+  const ownerWorkspace = (await call('/api/workspace', undefined, op)).b;
+  assert.ok(ownerWorkspace.campaigns.some((x) => x.id === c.id && x.status === 'moderation'));
+  assert.equal(ownerWorkspace.media[c.id], 'image/png');
   await call(
     '/api/workspace',
     { action: 'submit', id: c.id, accepted: true },
@@ -518,6 +518,7 @@ try {
     (await call('/api/workspace', undefined, other)).b.campaigns.length,
     0,
   );
+  assert.equal((await call('/api/workspace', undefined, other)).b.media[c.id], undefined);
   await call('/api/workspace', { action: 'cancel', id: c.id }, other, 400);
   pass('other advertiser cannot read or change campaign');
   const link = (

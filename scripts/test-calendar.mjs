@@ -141,15 +141,32 @@ const dateSource = await readFile(new URL('../lib/date-labels.ts', import.meta.u
 const dateModule = ts.transpileModule(dateSource, {
   compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
 }).outputText;
-const { shortDayLabel, longDateLabel, monthLabel } = await import(
-  'data:text/javascript;base64,' + Buffer.from(dateModule).toString('base64')
-);
+const dateUrl = 'data:text/javascript;base64,' + Buffer.from(dateModule).toString('base64');
+const { shortDayLabel, longDateLabel, monthLabel, compactDateLabel, compactDateRange } = await import(dateUrl);
 assert.equal(shortDayLabel('2026-09-24', true), '24.09 · pa');
 assert.equal(shortDayLabel('2026-09-25', false), '25.09 · пт');
 assert.equal(longDateLabel('2026-09-24', true), '24-sentabr 2026');
 assert.equal(longDateLabel('2026-09-24', false), '24 сентября 2026');
 assert.equal(monthLabel('2026-09', true), 'sentabr 2026');
+assert.equal(compactDateLabel('2026-09-26'), '26.09.26');
+assert.equal(compactDateRange('2026-09-26', '2026-09-26'), '26.09.26');
+assert.equal(compactDateRange('2026-09-26', '2026-09-29'), '26.09.26 — 29.09.26');
 console.log('PASS Uzbek and Russian calendar labels are browser-locale independent');
+
+const auditSource = await readFile(new URL('../lib/audit-labels.ts', import.meta.url), 'utf8');
+const auditModule = ts.transpileModule(auditSource, {
+  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+}).outputText.replace("from './date-labels'", `from '${dateUrl}'`);
+const audit = await import(
+  'data:text/javascript;base64,' + Buffer.from(auditModule).toString('base64')
+);
+assert.equal(audit.auditActionLabel('create', false), 'Создан черновик');
+assert.equal(audit.auditActionLabel('submit', true), 'Ekran egasiga yuborildi');
+assert.equal(audit.auditActionLabel('technical', false), 'Владелец принял размещение');
+assert.equal(audit.auditRoleLabel('operator', true), 'Ekran egasi');
+assert.equal(audit.auditNoteLabel('Резерв на 30 минут', false), 'Время удержано на 30 минут');
+assert.equal(audit.auditTimeLabel('2026-09-24T18:45:42Z'), '24.09.26, 23:45:42');
+console.log('PASS placement history has plain-language actions and compact Tashkent dates');
 
 const { cities } = JSON.parse(await readFile(new URL('../lib/soato-locations.json', import.meta.url), 'utf8'));
 assert.equal(cities.length, 120);

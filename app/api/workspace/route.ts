@@ -11,6 +11,7 @@ import { apply, maintain, owns, sees, staff } from '@/lib/workflow';
 import type { Asset, State, User } from '@/lib/model';
 function visible(s: State, u?: User) {
   const campaigns = u ? s.campaigns.filter((c) => sees(u, c, s)) : [];
+  const assetMime = database().prepare('SELECT mime FROM assets WHERE id=?');
   return {
     ...s,
     surfaces: s.surfaces.filter(
@@ -20,6 +21,12 @@ function visible(s: State, u?: User) {
         campaigns.some((c) => c.surfaceIds.includes(x.id)),
     ),
     campaigns,
+    media: Object.fromEntries(
+      campaigns.map((campaign) => [
+        campaign.id,
+        (assetMime.get(campaign.assetId) as { mime?: string } | undefined)?.mime || '',
+      ]),
+    ),
     reservations: s.campaigns
       .filter((c) => !['cancelled', 'completed', 'expired'].includes(c.status))
       .map((c) => ({
